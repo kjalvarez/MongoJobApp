@@ -4,5 +4,18 @@ block content
 	.container
 		h1 Applicants
 		ul#applications.list-unstyled
-			
-		
+			for applicant in applicants
+				p Name: #{applicant.name}
+				p Bio: #{applicant.bio}
+				p Skills: #{applicant.skills}
+				p Years of experience: #{applicant.experience}
+				p Why do you want to work here? #{applicant.reason}
+				p -------------------------------------------------
+
+
+
+
+
+
+
+				

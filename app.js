@@ -39,10 +39,14 @@ var ApplicantSchema= new mongoose.Schema({
 
 var ApplicantModel= mongoose.model('applicant', ApplicantSchema)
 
-
 // displays a list of applicants
 app.get('/applicants', function(req, res){
-
+	ApplicantModel.find({}, function(err, data) {
+		res.render('applicants', { 
+			applicants: data
+		});
+		
+	});
 });
 
 // creates and applicant
@@ -57,8 +61,7 @@ app.post('/applicant', function (req, res){
 		reason: req.body.why
 	});
 
-// Here is where you need to get the data
-	// from the post body and store it
+
 	newApplicant.save(function (err, data) {
 		res.render('successPage');
 	})
